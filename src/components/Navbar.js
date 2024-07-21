@@ -16,12 +16,14 @@ import { Link } from 'react-router-dom';
 // Logo
 import logo from '../img/trasmundo-logo.png'
 
+// Paginas del proyecto
 const pages = [
   { title: 'Home', path: '/' },
   { title: 'About', path: '/about' },
   { title: 'Contact', path: '/contact' }
 ];
 
+// Controlando el menu: Aclaje, apertura y cierre
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -35,13 +37,14 @@ function ResponsiveAppBar() {
 
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#FFFFFF' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
-              <img src={logo} alt="Logo" style={{ height: '130px', width: 'auto' }} />
+            <Link to="/">
+              <img src={logo} alt="Logo" style={{ height: '50px', width: 'auto' }} />
             </Link>
 
+          {/*Diseño Mobile  */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
             <IconButton
               size="large"
@@ -50,6 +53,7 @@ function ResponsiveAppBar() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              sx={{ color: 'black' }}
             >
               <MenuIcon />
             </IconButton>
@@ -73,7 +77,7 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
+                  <Typography textAlign="center" sx={{ color: 'black', fontFamily: 'Montserrat, sans-serif' }}>
                     <Link to={page.path} style={{ textDecoration: 'none', color: 'inherit' }}>
                       {page.title}
                     </Link>
@@ -82,13 +86,15 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
+
+          {/* Menu Escritorio */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'start' }}>
             {pages.map((page) => (
               <Button
               key={page.title}
               component={Link}
               to={page.path}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block', fontFamily: 'Montserrat, sans-serif' }}
               >
                 {page.title}
               </Button>
