@@ -1,15 +1,10 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import HeroSection from '../components/Hero';
 
 function Home() {
   return (
     <div>
-      <Typography variant="h4" gutterBottom>
-        Home
-      </Typography>
-      <Typography variant="body1">
-        Bienvenido a la página principal.
-      </Typography>
+      <HeroSection />
     </div>
   );
 }
